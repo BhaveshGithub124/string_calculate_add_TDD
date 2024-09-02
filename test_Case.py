@@ -46,3 +46,7 @@ def test_handle_custom_delimiter():
 
     string = "//---\n2---4---6"
     assert (addCalculator(string) == 12)
+
+def test_negative_number():
+    string = "-1,2,-3,4"
+    assert (addCalculator(string) == 2)
