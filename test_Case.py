@@ -29,5 +29,17 @@ def test_handle_new_line_in_string():
     assert (addCalculator(string) == 15)
 
 def test_handle_custom_delimiter():
-    string = "//;\n1;2"
-    assert (addCalculator(string) == 3)
+    string = "//#\n4#5#6"
+    assert (addCalculator(string) == 15)
+
+    string = "//|\n1|2|3"
+    assert (addCalculator(string) == 6)
+
+    string = "//;\n10;20"
+    assert (addCalculator(string) == 30)
+
+    string = "//@\n10@20@30@40"
+    assert (addCalculator(string) == 100)
+
+    string = "//*\n2*4*6*8*10"
+    assert (addCalculator(string) == 30)
