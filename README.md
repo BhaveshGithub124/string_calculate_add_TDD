@@ -4,4 +4,4 @@
 2. run pip install pytest in command prompt.
 3. clone the code from github using git clone <GitHub repository link>
 4. change directory to git_clone_location\string_calculate_add_TDD in command prompt.
-5. run pytest in command prompt.
+5. run pytest -s in command prompt.
