@@ -25,5 +25,9 @@ def test_unlimited_number_in_string_with_comma_delimiter():
     assert (addCalculator(string) == 1995)
 
 def test_handle_new_line_in_string():
-    string = "1\n2,3"
-    assert (addCalculator(string) == 6)
+    string = "1\n2,3\n4,5"
+    assert (addCalculator(string) == 15)
+
+def test_handle_custom_delimiter():
+    string = "//;\n1;2"
+    assert (addCalculator(string) == 3)
