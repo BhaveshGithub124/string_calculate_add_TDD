@@ -1,5 +1,6 @@
 def addCalculator(stringNumber):
-    print('\nTest string:"{}"'.format(stringNumber))
+    printString = stringNumber.replace("\n","\\n")
+    print('\nTest string:"{}"'.format(printString))
 
     if len(stringNumber) == 0:
         print("result:0")
@@ -9,8 +10,13 @@ def addCalculator(stringNumber):
         return int(stringNumber)
     else:
         result = 0
-        stringNumber = stringNumber.replace("\n",",")
-        numbers = stringNumber.split(",")
+        delim = ","
+        if stringNumber[0] == "/": # for custom delimiter
+            delim = stringNumber[2] #delimiter position is at index 2 for custom delimiter
+            stringNumber = stringNumber[4:] #numbers start from index 4 for custom delimiter
+
+        stringNumber = stringNumber.replace("\n",delim)
+        numbers = stringNumber.split(delim)
         for number in numbers:
             result += int(number)
         print("result:{}".format(int(result)))
