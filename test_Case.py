@@ -15,3 +15,7 @@ def test_two_number_in_string_with_comma_delimiter():
 def test_three_number_in_string_with_comma_delimiter():
     string = "10,20,30"
     assert (addCalculator(string) == 60)
+
+def test_four_number_in_string_with_comma_delimiter():
+    string = "0,50,100,150"
+    assert (addCalculator(string) == 300)
