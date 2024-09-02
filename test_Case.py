@@ -1,10 +1,10 @@
-from add_calculator import addCalulator
+from add_calculator import addCalculator
 
 def test_emptyString():
-    result = addCalulator("")
+    result = addCalculator("")
     assert (result == 0)
 
 def test_single_number_in_string():
-    string = "1"
-    assert (addCalulator(string) == 1)
+    string = "2"
+    assert (addCalculator(string) == 2)
 
