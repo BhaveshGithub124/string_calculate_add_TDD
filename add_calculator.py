@@ -11,9 +11,10 @@ def addCalculator(stringNumber):
     else:
         result = 0
         delim = ","
-        if stringNumber.startswith("//"):                           # for custom delimiter
-            delim= stringNumber.split("//")[1][0]                   # "//|\n1|2|3"  -> ["", "|\n1|2|3"]
-            stringNumber = stringNumber[stringNumber.find("\n")+1:] #numbers start from index 4 for custom delimiter
+        if stringNumber.startswith("//"):                                          # for custom delimiter
+            numberWithDelim = stringNumber.split("//")[1]                          # "//;;;\n1;;;2|;;;3"  -> ["", ";;;\n1;;;2;;;3"]
+            delim = numberWithDelim[:numberWithDelim.find("\n")]   
+            stringNumber = numberWithDelim[numberWithDelim.find("\n")+1:] 
 
         stringNumber = stringNumber.replace("\n",delim)
         numbers = stringNumber.split(delim)
