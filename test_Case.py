@@ -43,3 +43,6 @@ def test_handle_custom_delimiter():
 
     string = "//*\n2*4*6*8*10"
     assert (addCalculator(string) == 30)
+
+    string = "//---\n2---4---6"
+    assert (addCalculator(string) == 12)
