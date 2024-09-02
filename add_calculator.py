@@ -1,2 +1,2 @@
 def addCalulator(stringNumber):
-    pass
+    return 0
