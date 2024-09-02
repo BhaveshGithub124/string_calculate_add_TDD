@@ -1,2 +1,4 @@
 def addCalulator(stringNumber):
-    return 0
+    if stringNumber == "":
+        return 0
+    return 1
