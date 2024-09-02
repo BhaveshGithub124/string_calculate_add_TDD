@@ -9,6 +9,7 @@ def addCalculator(stringNumber):
         return int(stringNumber)
     else:
         result = 0
+        stringNumber = stringNumber.replace("\n",",")
         numbers = stringNumber.split(",")
         for number in numbers:
             result += int(number)
