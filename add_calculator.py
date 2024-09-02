@@ -11,9 +11,9 @@ def addCalculator(stringNumber):
     else:
         result = 0
         delim = ","
-        if stringNumber[0] == "/": # for custom delimiter
-            delim = stringNumber[2] #delimiter position is at index 2 for custom delimiter
-            stringNumber = stringNumber[4:] #numbers start from index 4 for custom delimiter
+        if stringNumber.startswith("//"):                           # for custom delimiter
+            delim= stringNumber.split("//")[1][0]                   # "//|\n1|2|3"  -> ["", "|\n1|2|3"]
+            stringNumber = stringNumber[stringNumber.find("\n")+1:] #numbers start from index 4 for custom delimiter
 
         stringNumber = stringNumber.replace("\n",delim)
         numbers = stringNumber.split(delim)
