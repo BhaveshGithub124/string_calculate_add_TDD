@@ -90,3 +90,7 @@ def test_custom_delim_with_variable_length():
 def test_custom_delimiter_having_more_than_one_type():
     string = "//[;][#]\n4#5;6;1001#10"
     assert (addCalculator(string) == 25)
+
+def test_custom_delimiter_having_more_than_one_type_with_Variable_len():
+    string = "//[;][#][***][&&]\n4#5;6;1001#10***12&&13"
+    assert (addCalculator(string) == 50)
