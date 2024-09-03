@@ -1,3 +1,4 @@
+import pytest
 from add_calculator import addCalculator
 
 def test_emptyString():
@@ -49,4 +50,6 @@ def test_handle_custom_delimiter():
 
 def test_negative_number():
     string = "-1,2,-3,4"
-    assert (addCalculator(string) == 2)
+    with pytest.raises(ValueError) as exceptionInfo:
+        reuslt = addCalculator(string)
+    assert str(exceptionInfo.value) == "Numbers can not be negative."

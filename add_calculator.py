@@ -18,7 +18,15 @@ def addCalculator(stringNumber):
 
         stringNumber = stringNumber.replace("\n",delim)
         numbers = stringNumber.split(delim)
+        negativeNumbers = []
         for number in numbers:
+            if int(number) < 0:
+                negativeNumbers.append(int(number))
             result += int(number)
+        
+        if len(negativeNumbers) != 0:
+            commaSeparatedNegativeValue = ", ".join(map(str, negativeNumbers))
+            print("Negative numbers detected:",commaSeparatedNegativeValue)
+            raise ValueError("Numbers can not be negative.")
         print("result:{}".format(int(result)))
         return int(result)
