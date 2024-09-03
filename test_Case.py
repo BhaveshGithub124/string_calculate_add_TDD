@@ -86,3 +86,7 @@ def test_custom_delim_with_variable_length():
 
     string = "//[.....]\n2.....3.....4.....5.....6.....100.....200"
     assert (addCalculator(string) == 320)
+
+def test_custom_delimiter_having_more_than_one_type():
+    string = "//[;][#]\n4#5;6;1001#10"
+    assert (addCalculator(string) == 25)
