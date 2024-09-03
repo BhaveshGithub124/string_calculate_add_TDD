@@ -75,3 +75,14 @@ def test_ignore_numbers_greater_than_1000():
 def test_custom_delim_with_variable_length():
     string = "//[---]\n2---4---6---1010---8---1200"
     assert (addCalculator(string) == 20)
+
+    string = "//[***]\n2***4***6***1010***8***1200***10"
+    assert (addCalculator(string) == 30)
+
+    stringWithCustomDelimNegativeNum = "//[####]\n1####4####-6####-8####10####-11####-12####13"
+    with pytest.raises(ValueError) as exceptionInfo:
+        addCalculator(stringWithCustomDelimNegativeNum)
+    assert str(exceptionInfo.value) == "negatives not allowed."
+
+    string = "//[.....]\n2.....3.....4.....5.....6.....100.....200"
+    assert (addCalculator(string) == 320)
