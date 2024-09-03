@@ -13,8 +13,13 @@ def addCalculator(stringNumber):
         delim = ","
         if stringNumber.startswith("//"):                                          # for custom delimiter
             numberWithDelim = stringNumber.split("//")[1]                          # "//;\n1;2;3"  -> ["", ";\n1;2;3"]
-            delim = numberWithDelim[0]   
-            stringNumber = numberWithDelim[numberWithDelim.find("\n")+1:] 
+            delim = numberWithDelim[0]
+            startIdxForVarLenDelim = numberWithDelim.find("[")
+            endIdxForVarLenDelim = numberWithDelim.find("]")
+
+            if startIdxForVarLenDelim != -1 and endIdxForVarLenDelim != -1:
+                delim = numberWithDelim[startIdxForVarLenDelim+1 : endIdxForVarLenDelim]
+            stringNumber = numberWithDelim[numberWithDelim.find("\n")+1:]
 
         stringNumber = stringNumber.replace("\n",delim)
         numbers = stringNumber.split(delim)
