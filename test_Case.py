@@ -94,3 +94,11 @@ def test_custom_delimiter_having_more_than_one_type():
 def test_custom_delimiter_having_more_than_one_type_with_Variable_len():
     string = "//[;][#][***][&&]\n4#5;6;1001#10***12&&13"
     assert (addCalculator(string) == 50)
+
+    stringWithCustomDelimNegativeNum = "//[####][(]\n1####4####-6####-8####10####-11####-12####13(10"
+    with pytest.raises(ValueError) as exceptionInfo:
+        addCalculator(stringWithCustomDelimNegativeNum)
+    assert str(exceptionInfo.value) == "negatives not allowed."
+
+    string = "//[??][#][***][&&][!!!]\n4#5??6??1001#10***12&&13!!!100"
+    assert (addCalculator(string) == 150)
