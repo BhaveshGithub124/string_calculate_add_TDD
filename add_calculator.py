@@ -12,8 +12,8 @@ def addCalculator(stringNumber):
         result = 0
         delim = ","
         if stringNumber.startswith("//"):                                          # for custom delimiter
-            numberWithDelim = stringNumber.split("//")[1]                          # "//;;;\n1;;;2|;;;3"  -> ["", ";;;\n1;;;2;;;3"]
-            delim = numberWithDelim[:numberWithDelim.find("\n")]   
+            numberWithDelim = stringNumber.split("//")[1]                          # "//;\n1;2;3"  -> ["", ";\n1;2;3"]
+            delim = numberWithDelim[0]   
             stringNumber = numberWithDelim[numberWithDelim.find("\n")+1:] 
 
         stringNumber = stringNumber.replace("\n",delim)

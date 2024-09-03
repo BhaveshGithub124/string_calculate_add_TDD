@@ -54,7 +54,7 @@ def test_negative_number():
         reuslt = addCalculator(string)
     assert str(exceptionInfo.value) == "negatives not allowed."
 
-    stringWithCustomDelimNegativeNum = "//**\n2**4**-6**-8**10"
+    stringWithCustomDelimNegativeNum = "//*\n2*4*-6*-8*10"
     with pytest.raises(ValueError) as exceptionInfo:
         addCalculator(stringWithCustomDelimNegativeNum)
     assert str(exceptionInfo.value) == "negatives not allowed."
