@@ -1,3 +1,4 @@
+import re
 def addCalculator(stringNumber):
     printString = stringNumber.replace("\n","\\n")
     print('\nTest string:"{}"'.format(printString))
@@ -11,15 +12,15 @@ def addCalculator(stringNumber):
     else:
         result = 0
         delim = ","
+        originalString = stringNumber
         if stringNumber.startswith("//"):                                          # for custom delimiter
             numberWithDelim = stringNumber.split("//")[1]                          # "//;\n1;2;3"  -> ["", ";\n1;2;3"]
             delim = numberWithDelim[0]
-            startIdxForVarLenDelim = numberWithDelim.find("[")
-            endIdxForVarLenDelim = numberWithDelim.find("]")
-
-            if startIdxForVarLenDelim != -1 and endIdxForVarLenDelim != -1:
-                delim = numberWithDelim[startIdxForVarLenDelim+1 : endIdxForVarLenDelim]
             stringNumber = numberWithDelim[numberWithDelim.find("\n")+1:]
+
+            startIdxForVarLenDelim = numberWithDelim.find("[")
+            if startIdxForVarLenDelim != -1:
+                stringNumber,delim = multiple_and_variable_len_delim(originalString.split("\n")[0], stringNumber)
 
         stringNumber = stringNumber.replace("\n",delim)
         numbers = stringNumber.split(delim)
@@ -37,3 +38,13 @@ def addCalculator(stringNumber):
             raise ValueError("negatives not allowed.")
         print("result:{}".format(int(result)))
         return int(result)
+    
+def multiple_and_variable_len_delim(numberWithDelim, stringNumber):
+    patterns = r'\[(.*?)\]'
+    delimiters = re.findall(patterns, numberWithDelim)
+    escaped_delimiters = [re.escape(delim) for delim in delimiters]
+    pattern = '|'.join(escaped_delimiters)
+    stringWithCommaDelim = re.sub(pattern, ",",stringNumber)
+    return stringWithCommaDelim, ","
+    
+    
