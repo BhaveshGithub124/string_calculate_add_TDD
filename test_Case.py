@@ -45,7 +45,7 @@ def test_handle_custom_delimiter():
     string = "//*\n2*4*6*8*10"
     assert (addCalculator(string) == 30)
 
-    string = "//---\n2---4---6"
+    string = "//-\n2-4-6"
     assert (addCalculator(string) == 12)
 
 def test_negative_number():
@@ -63,7 +63,7 @@ def test_ignore_numbers_greater_than_1000():
     string = "//#\n4#5#6#1001"
     assert (addCalculator(string) == 15)
 
-    string = "//---\n2---4---6---1010---8---1200"
+    string = "//-\n2-4-6-1010-8-1200"
     assert (addCalculator(string) == 20)
 
     string = "//|\n1|2|3|1000|4"
