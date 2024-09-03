@@ -62,3 +62,12 @@ def test_negative_number():
 def test_ignore_numbers_greater_than_1000():
     string = "//#\n4#5#6#1001"
     assert (addCalculator(string) == 15)
+
+    string = "//---\n2---4---6---1010---8---1200"
+    assert (addCalculator(string) == 20)
+
+    string = "//|\n1|2|3|1000|4"
+    assert (addCalculator(string) == 1010)
+
+    string = "//*\n2*4*6*8*10*999"
+    assert (addCalculator(string) == 1029)
