@@ -58,3 +58,7 @@ def test_negative_number():
     with pytest.raises(ValueError) as exceptionInfo:
         addCalculator(stringWithCustomDelimNegativeNum)
     assert str(exceptionInfo.value) == "negatives not allowed."
+
+def test_ignore_numbers_greater_than_1000():
+    string = "//#\n4#5#6#1001"
+    assert (addCalculator(string) == 15)
