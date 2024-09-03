@@ -52,9 +52,9 @@ def test_negative_number():
     string = "-1,2,-3,4"
     with pytest.raises(ValueError) as exceptionInfo:
         reuslt = addCalculator(string)
-    assert str(exceptionInfo.value) == "Numbers can not be negative."
+    assert str(exceptionInfo.value) == "negatives not allowed."
 
     stringWithCustomDelimNegativeNum = "//**\n2**4**-6**-8**10"
     with pytest.raises(ValueError) as exceptionInfo:
         addCalculator(stringWithCustomDelimNegativeNum)
-    assert str(exceptionInfo.value) == "Numbers can not be negative."
+    assert str(exceptionInfo.value) == "negatives not allowed."

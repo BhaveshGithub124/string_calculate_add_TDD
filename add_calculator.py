@@ -26,7 +26,7 @@ def addCalculator(stringNumber):
         
         if len(negativeNumbers) != 0:
             commaSeparatedNegativeValue = ", ".join(map(str, negativeNumbers))
-            print("Negative numbers detected:",commaSeparatedNegativeValue)
-            raise ValueError("Numbers can not be negative.")
+            print("negatives not allowed:",commaSeparatedNegativeValue)
+            raise ValueError("negatives not allowed.")
         print("result:{}".format(int(result)))
         return int(result)
