@@ -71,3 +71,7 @@ def test_ignore_numbers_greater_than_1000():
 
     string = "//*\n2*4*6*8*10*999"
     assert (addCalculator(string) == 1029)
+
+def test_custom_delim_with_variable_length():
+    string = "//[---]\n2---4---6---1010---8---1200"
+    assert (addCalculator(string) == 20)
