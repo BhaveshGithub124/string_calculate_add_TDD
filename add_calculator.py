@@ -22,6 +22,8 @@ def addCalculator(stringNumber):
         for number in numbers:
             if int(number) < 0:
                 negativeNumbers.append(int(number))
+            elif int(number) > 1000:
+                continue
             result += int(number)
         
         if len(negativeNumbers) != 0:
